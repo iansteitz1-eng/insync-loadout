@@ -1,0 +1,67 @@
+{
+  "sprint": "2026-06-02 launch-hardening convergence",
+  "state_doc": "STATE_2026_06_02.md",
+  "window_order": ["W0", "W1", "W2", "W3"],
+  "lanes": {
+    "video": {
+      "kind": "tmux-human",
+      "role": "Dev-shell + video index; built the local-first dev-shell.",
+      "owns": [
+        "video_index.py",
+        "seed_video_index.*",
+        "static/videos.html",
+        "local_dev.py",
+        "dev_db.py"
+      ],
+      "window": "W0",
+      "cwd": "~/dev/<your-project>",
+      "criteria": "video index live for the founders; the three emailed; link gated to allowed accounts."
+    },
+    "cabinet-obs": {
+      "kind": "self",
+      "role": "Tool Cabinet CLI delivery + runner-engagement observability (this terminal).",
+      "owns": [
+        "aria_tool_catalog.py",
+        "runner_provenance.py",
+        "aria_cli_jobs.py",
+        "dev_toolcabinet.py"
+      ],
+      "window": "W1+W2",
+      "criteria": "flowstate-kit staged on server; import main green; test-device grant -> /aria-cli/tools -> install lays Cabinet; then provenance wiring post-W0."
+    },
+    "bridge": {
+      "kind": "tmux-human",
+      "role": "PIN-gated voice->disk runner bridge; runner IPC instrumentation.",
+      "owns": ["el-bridge-deploy/*", "pin_scrub.py"],
+      "window": "W3",
+      "cwd": "~/Desktop/aria-launch/el-bridge-deploy",
+      "criteria": "security gates #6 (EL PIN scrub) + #8 (web_search IP) closed & verified; EL-config applied on Ian's go."
+    },
+    "brothers": {
+      "kind": "tmux-human",
+      "role": "Brothers Composites runner-toolkit + ASI consolidation/pricing.",
+      "owns": ["runner-toolkit/*", "asi_migration.sql", "ASI store endpoint"],
+      "window": "post",
+      "cwd": "~/clients/brothers-composites/runner-toolkit",
+      "criteria": "ASI catalog priced (pro/premium/cheat-code) reconciled with Cabinet SKUs; toolkit installs via the same /aria-cli/tools path."
+    },
+    "packsmith": {
+      "kind": "spawner",
+      "role": "Bounded fan-out: build the remaining Tool Cabinet packs (tier2_dcu, dve_guidebook).",
+      "owns": ["aria_tool_catalog.py (extension point)"],
+      "window": "W1",
+      "criteria": "tier2_dcu + dve_guidebook ToolSpecs + builders added; catalog lists 4 tools; e2e still green."
+    }
+  },
+  "gates": {
+    "blocked_phrases": [
+      "deploy",
+      "restart",
+      "rm -rf",
+      "git push",
+      "shutdown",
+      "swap_model"
+    ],
+    "rule": "app-gateway restart is the shared checkpoint; W0 (video) pushes first; no other main.py edit until W0 lands; restart is maintainer-gated + voice active-call gate."
+  }
+}

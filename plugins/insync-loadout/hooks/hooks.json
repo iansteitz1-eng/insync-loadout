@@ -1,0 +1,42 @@
+{
+  "description": "InsyncTech loadout hooks — the PORTABLE subset of Ian's live 21-hook / 7-event wiring. These reference bundled scripts via ${CLAUDE_PLUGIN_ROOT} so they work on any machine. The Ian-personal hooks (voice, disk-lane, ordo-sync, aria-checkpoint, session-start funnels) are NOT here — they are machine-specific and documented in README.md as a post-install step.",
+  "PreToolUse": [
+    {
+      "matcher": "Bash",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/cc_hook_guard.py",
+          "timeout": 15
+        }
+      ]
+    },
+    {
+      "matcher": "Edit|Write",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/cc_hook_canon_gate.py",
+          "timeout": 15
+        }
+      ]
+    }
+  ],
+  "PostToolUse": [
+    {
+      "matcher": "Write|Edit|MultiEdit",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/cc_hook_formatter.py",
+          "timeout": 30
+        },
+        {
+          "type": "command",
+          "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/cc_hook_syntax_check.py",
+          "timeout": 30
+        }
+      ]
+    }
+  ]
+}

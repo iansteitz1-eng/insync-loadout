@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "insync",
+  "description": "InsyncTech private marketplace — the operator loadout that puts Ian's Claude Code toolkit on a new teammate's machine in one command. Spine-as-product, dogfooded.",
+  "owner": {
+    "name": "InsyncTech",
+    "email": "ian@insynctech.io"
+  },
+  "plugins": [
+    {
+      "name": "insync-loadout",
+      "description": "Curated ship-set of session-lifecycle, orchestration, planning, and comms skills plus the 11-agent multi-agent fabric. The distributable operator toolkit for InsyncTech teammates.",
+      "version": "0.1.0",
+      "author": {
+        "name": "InsyncTech",
+        "email": "ian@insynctech.io"
+      },
+      "source": "./plugins/insync-loadout",
+      "category": "productivity",
+      "homepage": "https://github.com/iansteitz1-eng/insync-loadout"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "insync-loadout",
+  "version": "0.1.0",
+  "description": "InsyncTech operator loadout for Claude Code — a curated ship-set of session-lifecycle, orchestration, planning, and comms skills plus the multi-agent fabric, so a new teammate's machine boots with the toolkit in one command.",
+  "author": {
+    "name": "InsyncTech",
+    "email": "ian@insynctech.io"
+  },
+  "homepage": "https://github.com/iansteitz1-eng/insync-loadout",
+  "license": "UNLICENSED",
+  "keywords": [
+    "loadout",
+    "operator-toolkit",
+    "session-lifecycle",
+    "orchestration",
+    "multi-agent",
+    "planning",
+    "insync"
+  ],
+  "skills": "./skills",
+  "agents": "./agents",
+  "hooks": "./hooks/hooks.json"
+}

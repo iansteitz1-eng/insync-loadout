@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.bak-*
+.DS_Store
+
+# never tracked (2026-09-04)
+.env
+.env.*
+*.key
+*.pem
+*.p8
+*.p12
+*-secret.*
+credentials*
